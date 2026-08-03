@@ -1,3 +1,5 @@
+//新しいDB設計に対応させる
+
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
