@@ -102,11 +102,33 @@ router.post('/', function (req, res, next) {
 
 });
 
+router.post('/delete/:id', function(req, res, next){
+
+  const taskId = req.params.id;
+
+  knex("tasks")
+    .where({
+      id: taskId
+    })
+    .del()
+    .then(function(){
+
+      res.redirect('/');
+
+    })
+    .catch(function(err){
+
+      console.error(err);
+
+      res.status(500).send("delete error");
+
+    });
+
+});
 
 
-/*
- * FullCalendar用API
- */
+
+// FullCalendar用API
 router.get('/calendar/events', function (req, res) {
 
   const userId = req.user.id;
