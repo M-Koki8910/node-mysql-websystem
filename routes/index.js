@@ -102,7 +102,7 @@ router.post('/', function (req, res, next) {
 
 });
 
-router.post('/delete/:id', function(req, res, next){
+router.post('/delete/:id', function (req, res, next) {
 
   const taskId = req.params.id;
 
@@ -111,12 +111,12 @@ router.post('/delete/:id', function(req, res, next){
       id: taskId
     })
     .del()
-    .then(function(){
+    .then(function () {
 
       res.redirect('/');
 
     })
-    .catch(function(err){
+    .catch(function (err) {
 
       console.error(err);
 
